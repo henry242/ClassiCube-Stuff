@@ -26,39 +26,42 @@ namespace MCGalaxy {
         void CheckDirection(SchedulerTask tak) {
             Player[] players = PlayerInfo.Online.Items;
             foreach (Player p in players) {
-	        if (p.level.Config.MOTD.ToLower().Contains("+compass")) {
-			if (Orientation.PackedToDegrees(p.Rot.RotY) >= 339 && Orientation.PackedToDegrees(p.Rot.RotY) < 361 || Orientation.PackedToDegrees(p.Rot.RotY) >= 0 && Orientation.PackedToDegrees(p.Rot.RotY) < 33) {
-			    p.Send(Packet.SetHotbar(100, 8, true));
-			}
+				int rotationofplayer = Orientation.PackedToDegrees(p.Rot.RotY);
+				if (!p.Supports(CpeExt.SetHotbar)) { continue; }
+				bool hasinf = p.hasExtBlocks;
+				if (p.level.Config.MOTD.ToLower().Contains("+compass")) {
+					if (rotationofplayer >= 339 && rotationofplayer < 361 || rotationofplayer >= 0 && rotationofplayer < 33) {
+						p.Send(Packet.SetHotbar(100, 8, hasinf));
+					}
 
-			else if (Orientation.PackedToDegrees(p.Rot.RotY) >= 33 && Orientation.PackedToDegrees(p.Rot.RotY) < 68) {
-			    p.Send(Packet.SetHotbar(101, 8, true));
-			}
+					else if (rotationofplayer >= 33 && rotationofplayer < 68) {
+						p.Send(Packet.SetHotbar(101, 8, hasinf));
+					}
 
-			else if (Orientation.PackedToDegrees(p.Rot.RotY) >= 68 && Orientation.PackedToDegrees(p.Rot.RotY) < 113) {
-			    p.Send(Packet.SetHotbar(102, 8, true));
-			}
+					else if (rotationofplayer >= 68 && rotationofplayer < 113) {
+						p.Send(Packet.SetHotbar(102, 8, hasinf));
+					}
 
-			else if (Orientation.PackedToDegrees(p.Rot.RotY) >= 113 && Orientation.PackedToDegrees(p.Rot.RotY) < 158) {
-			    p.Send(Packet.SetHotbar(103, 8, true));
-			}
+					else if (rotationofplayer >= 113 && rotationofplayer < 158) {
+						p.Send(Packet.SetHotbar(103, 8, hasinf));
+					}
 
-			else if (Orientation.PackedToDegrees(p.Rot.RotY) >= 153 && Orientation.PackedToDegrees(p.Rot.RotY) < 203) {
-			    p.Send(Packet.SetHotbar(104 , 8, true));
-			}
+					else if (rotationofplayer >= 153 && rotationofplayer < 203) {
+						p.Send(Packet.SetHotbar(104 , 8, hasinf));
+					}
 
-			else if (Orientation.PackedToDegrees(p.Rot.RotY) >= 203 && Orientation.PackedToDegrees(p.Rot.RotY) < 258) {
-			    p.Send(Packet.SetHotbar(105, 8, true));
-			}
+					else if (rotationofplayer >= 203 && rotationofplayer < 258) {
+						p.Send(Packet.SetHotbar(105, 8, hasinf));
+					}
 
-			else if (Orientation.PackedToDegrees(p.Rot.RotY) >= 258 && Orientation.PackedToDegrees(p.Rot.RotY) < 293) {
-			    p.Send(Packet.SetHotbar(106, 8, true));
-			}
+					else if (rotationofplayer >= 258 && rotationofplayer < 293) {
+						p.Send(Packet.SetHotbar(106, 8, hasinf));
+					}
 
-			else if (Orientation.PackedToDegrees(p.Rot.RotY) >= 293 && Orientation.PackedToDegrees(p.Rot.RotY) < 339) {
-			    p.Send(Packet.SetHotbar(107, 8, true));
-			}
-		}
+					else if (rotationofplayer >= 293 && rotationofplayer < 339) {
+						p.Send(Packet.SetHotbar(107, 8, hasinf));
+					}
+				}
             }
         }
 
