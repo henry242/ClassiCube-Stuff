@@ -1,6 +1,8 @@
 //INSTALL INSTRUCTIONS
 //Make level blocks 100-107 going clockwise from bottom. For instance: bottom, bottom-left, left, etc.
 //Use +compass in the motd to use this.
+
+//TODO: optimize code, add more detailed instructions
 using System;
 using System.Threading;
 
